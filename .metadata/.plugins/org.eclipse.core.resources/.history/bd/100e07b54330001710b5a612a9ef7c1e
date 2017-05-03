@@ -1,0 +1,16 @@
+package trefethen.talk.client;
+
+import trefethen.talk.networking.CommunicationClient;
+
+public class TalkClient {
+	
+	public static CommunicationClient client;
+	public static Thread communicationThread;
+	
+	public static void main(String[] args) {
+		client = new CommunicationClient("localhost", 25565);
+		communicationThread = new Thread(client);
+		communicationThread.start();
+	}
+
+}
