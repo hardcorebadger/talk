@@ -12,5 +12,4 @@ public class TalkServer {
 		new Thread(server).start();
 	}
 	
-	
 }
