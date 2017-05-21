@@ -90,6 +90,7 @@ public class UserManager {
 		connections.remove(s);
 		s.disconnect(false);
 		users.remove(userID);
+		
 	}
 	
 	public static boolean register(String name, String password) {

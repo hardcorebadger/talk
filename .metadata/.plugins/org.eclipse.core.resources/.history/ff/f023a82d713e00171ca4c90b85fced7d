@@ -85,13 +85,6 @@ public class UserManager {
 		return -1;
 	}
 	
-	public static void logout(CommunicationServlet s) {
-		int userID = connections.get(s);
-		connections.remove(s);
-		s.disconnect(false);
-		users.remove(userID);
-	}
-	
 	public static boolean register(String name, String password) {
 		Iterator<User> iterator = users.values().iterator();
 		while (iterator.hasNext()) {

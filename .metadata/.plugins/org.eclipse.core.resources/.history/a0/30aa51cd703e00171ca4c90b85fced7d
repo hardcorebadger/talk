@@ -2,7 +2,7 @@ package trefethen.talk.client;
 
 import trefethen.talk.networking.CommunicationClient;
 import trefethen.talk.packet.PacketLogin;
-import trefethen.talk.packet.PacketLogout;
+import trefethen.talk.packet.PacketRegister;
 
 public class TalkClient {
 	
@@ -14,15 +14,10 @@ public class TalkClient {
 		client = new CommunicationClient("localhost", 8888);
 		communicationThread = new Thread(client);
 		communicationThread.start();
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-	      public void run() {
-	    	  client.addPacket(new PacketLogout());
-	      }
-	    });
 	}
 	
 	public static void onConnect() {
-		client.addPacket(new PacketLogin("Jake", "test"));
+		client.addPacket(new PacketRegister("Jakeo", "test"));
 	}
 
 }

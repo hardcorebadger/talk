@@ -1,0 +1,27 @@
+package trefethen.talk.packet;
+
+import java.io.IOException;
+
+import trefethen.talk.networking.CommunicationClient;
+
+public class PacketLogout extends Packet {
+	
+	public public PacketRegister() {
+		this.id = 2;
+	}() {
+		this.id = 3;
+	}
+
+	@Override
+	public void writeData(CommunicationClient client) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readData(CommunicationClient client) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
