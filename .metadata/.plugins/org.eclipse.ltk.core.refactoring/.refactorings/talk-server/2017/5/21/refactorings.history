@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PacketLogin.java&apos; to &apos;talk-client/src/trefethen.talk.packet&apos;&#x0A;- Original project: &apos;talk-server&apos;&#x0A;- Destination element: &apos;talk-client/src/trefethen.talk.packet&apos;&#x0A;- Original element: &apos;trefethen.talk.packet.PacketLogin.java&apos;" description="Copy compilation unit" destination="=talk-client/src&lt;trefethen.talk.packet" element1="/src&lt;trefethen.talk.packet{PacketLogin.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1495402015847" units="1" version="1.0"/>
+</session>

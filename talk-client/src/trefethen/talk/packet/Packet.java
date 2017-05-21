@@ -95,6 +95,7 @@ public abstract class Packet {
 	static {
 		
 		packetMap.put(0, PacketBlank.class);
+		packetMap.put(1, PacketLogin.class);
 		
 	}
 	

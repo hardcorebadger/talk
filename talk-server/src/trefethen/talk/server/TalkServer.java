@@ -1,6 +1,7 @@
 package trefethen.talk.server;
 
 import trefethen.talk.networking.*;
+import trefethen.talk.user.UserManager;
 
 public class TalkServer {
 	
@@ -8,8 +9,10 @@ public class TalkServer {
 	private static final int port = 8888;
 	
 	public static void main(String[] args) {
-//		server = new CommunicationServer(port);
-//		new Thread(server).start();
+		UserManager.loadUsers();
+		UserManager.displayUsers();
+		server = new CommunicationServer(port);
+		new Thread(server).start();
 	}
 	
 	

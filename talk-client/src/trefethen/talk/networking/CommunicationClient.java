@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import trefethen.talk.client.TalkClient;
 import trefethen.talk.packet.Packet;
 import trefethen.talk.packet.PacketBlank;
 
@@ -41,7 +42,7 @@ public class CommunicationClient implements Runnable {
 			writer.start();
 			reader.start();
 			System.out.println("Client initialized");
-			addPacket(new PacketBlank());
+			TalkClient.onConnect();
 		} catch (UnknownHostException e) {
 			System.out.println("Don't know about host: " + host + ".");
 			System.exit(1);

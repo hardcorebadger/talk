@@ -25,7 +25,11 @@ public class User {
 	public JSONObject toJSON() {
 		JSONObject obj = new JSONObject();
 		obj.put("Name", name);
-		obj.put("Author", password);
+		obj.put("Password", password);
 		return obj;
+	}
+	
+	public int getID() {
+		return id;
 	}
 }
