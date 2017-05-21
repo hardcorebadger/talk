@@ -1,0 +1,46 @@
+package trefethen.talk.user;
+
+import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import trefethen.talk.networking.CommunicationServlet;
+
+public class UserManager {
+	
+	private static String userDataFile = "resources/users.json";
+	
+	private static HashMap<Integer, User> users = new HashMap<Integer, User>();
+	private static HashMap<CommunicationServlet, Integer> connections = new HashMap<CommunicationServlet, Integer>();
+
+	public static void loadUsers() {
+		JSONParser parser = new JSONParser();
+		try {
+            Object obj = parser.parse(new FileReader(userDataFile));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray userJSON = (JSONArray) jsonObject.get("Users");
+            Iterator<JSONObject> iterator = userJSON.iterator();
+            int nextID = 0;
+            while (iterator.hasNext()) {
+            	JSONObject userObject = iterator.next();
+                User u = new User((String) userObject.get("Name"), (String) userObject.get("password"), nextID);
+                users.put(nextID, u);
+                nextID++;
+            }
+            displayUsers();
+		} catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+	private static void displayUsers() {
+		Iterator<User> iterator = users.values().iterator();
+		while (iterator.hasNext()) {
+			iterator.next().display();
+		}
+	}
+}

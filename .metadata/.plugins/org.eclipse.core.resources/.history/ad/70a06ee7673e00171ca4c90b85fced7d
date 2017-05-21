@@ -1,0 +1,15 @@
+package trefethen.talk.user;
+
+import java.util.HashMap;
+
+import trefethen.talk.networking.CommunicationServlet;
+
+public class UserManager {
+	
+	private static HashMap<Integer, User> users = new HashMap<Integer, User>();
+	private static HashMap<CommunicationServlet, Integer> connections = new HashMap<CommunicationServlet, Integer>();
+
+	private static void loadUsers() {
+		
+	}
+}

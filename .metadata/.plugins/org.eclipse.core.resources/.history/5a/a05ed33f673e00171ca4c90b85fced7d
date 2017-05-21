@@ -1,0 +1,8 @@
+package trefethen.talk.user;
+
+public class UserManager {
+	
+	private HashMap<Integer, User> users;
+	private HashMap<Integer, User> onlineUsers;
+
+}

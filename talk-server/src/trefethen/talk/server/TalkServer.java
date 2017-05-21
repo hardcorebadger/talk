@@ -8,8 +8,8 @@ public class TalkServer {
 	private static final int port = 8888;
 	
 	public static void main(String[] args) {
-		server = new CommunicationServer(port);
-		new Thread(server).start();
+//		server = new CommunicationServer(port);
+//		new Thread(server).start();
 	}
 	
 	

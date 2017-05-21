@@ -1,0 +1,18 @@
+package trefethen.talk.user;
+
+public class User {
+	
+	private String name;
+	private String password;
+	private int id;
+	
+	public User(String n, String p, int i) {
+		name = n;
+		password = p;
+		id = i;
+	}
+	
+	public boolean attemptLogin(String n, String p) {
+		return (n.equals(name) && p.equals(password));
+	}
+}

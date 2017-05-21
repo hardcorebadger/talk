@@ -1,0 +1,14 @@
+package trefethen.talk.user;
+
+public class User {
+	
+	private String name;
+	private String password;
+	private int id;
+	
+	public User(String n, String p, int i) {
+		name = n;
+		password = p;
+		id = i;
+	}
+}
