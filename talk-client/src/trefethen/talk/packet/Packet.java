@@ -96,6 +96,7 @@ public abstract class Packet {
 		
 		packetMap.put(0, PacketBlank.class);
 		packetMap.put(1, PacketLogin.class);
+		packetMap.put(2, PacketRegister.class);
 		
 	}
 	

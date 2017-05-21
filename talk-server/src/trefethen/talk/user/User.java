@@ -22,6 +22,7 @@ public class User {
 		System.out.println(name + ":" + password + ":" + id);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public JSONObject toJSON() {
 		JSONObject obj = new JSONObject();
 		obj.put("Name", name);
@@ -31,5 +32,9 @@ public class User {
 	
 	public int getID() {
 		return id;
+	}
+	
+	public String getName() {
+		return name;
 	}
 }

@@ -2,6 +2,7 @@ package trefethen.talk.client;
 
 import trefethen.talk.networking.CommunicationClient;
 import trefethen.talk.packet.PacketLogin;
+import trefethen.talk.packet.PacketRegister;
 
 public class TalkClient {
 	
@@ -16,7 +17,7 @@ public class TalkClient {
 	}
 	
 	public static void onConnect() {
-		client.addPacket(new PacketLogin("Jake", "test"));
+		client.addPacket(new PacketRegister("Jakeo", "test"));
 	}
 
 }

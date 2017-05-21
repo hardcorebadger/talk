@@ -9,7 +9,7 @@ public class PacketLogin extends Packet {
 	
 	private String name;
 	private String password;
-	private int userID;
+	private int loginID;
 	
 	public PacketLogin() {
 		this.id = 1;
@@ -25,7 +25,7 @@ public class PacketLogin extends Packet {
 	public void writeData(CommunicationServlet servlet) throws IOException {
 		servlet.getOutput().writeUTF(name);
 		servlet.getOutput().writeUTF(password);
-		servlet.getOutput().writeInt(userID);
+		servlet.getOutput().writeInt(loginID);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class PacketLogin extends Packet {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
 		// Attempt Login
-		userID = UserManager.login(name, password, servlet);
+		loginID = UserManager.login(name, password, servlet);
 		// Respond to login
 		servlet.addPacket(this);
 	}

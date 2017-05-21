@@ -85,9 +85,15 @@ public class UserManager {
 		return -1;
 	}
 	
-	public static void register(String name, String password) {
+	public static boolean register(String name, String password) {
+		Iterator<User> iterator = users.values().iterator();
+		while (iterator.hasNext()) {
+			if (iterator.next().getName().equals(name))
+				return false;
+		}
 		users.put(nextID, new User(name, password, nextID));
 		nextID++;
+		return true;
 	}
 	
 	/*

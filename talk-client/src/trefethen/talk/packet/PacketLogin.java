@@ -8,6 +8,7 @@ public class PacketLogin extends Packet {
 	
 	private String name;
 	private String password;
+	private int loginID;
 	
 	public PacketLogin() {
 		this.id = 1;
@@ -30,8 +31,8 @@ public class PacketLogin extends Packet {
 	public void readData(CommunicationClient servlet) throws IOException {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
-		userID = servlet.getInput().readInt();
-		if (userID == -1) {
+		loginID = servlet.getInput().readInt();
+		if (loginID == -1) {
 			// Login Failed
 			System.out.println("Login Failed");
 		} else {
