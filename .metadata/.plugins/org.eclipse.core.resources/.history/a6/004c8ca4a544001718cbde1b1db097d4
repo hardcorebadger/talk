@@ -35,9 +35,9 @@ public class UserManager {
             Iterator<JSONObject> iterator = userJSON.iterator();
             while (iterator.hasNext()) {
             	JSONObject userObject = iterator.next();
-            	User u = new User(userObject);                
-            	users.put(u.getID(), u);
-                nextID = Math.max(nextID, u.getID() + 1); // not the safest but hey you can't delete users so
+            	User u = new User(userObject, nextID);                
+            	users.put(nextID, u);
+                nextID++;
             }
             System.out.println("USER MANAGER : Users Loaded!");
 		} catch (Exception e) {

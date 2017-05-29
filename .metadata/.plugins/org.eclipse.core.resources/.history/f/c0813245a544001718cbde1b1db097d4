@@ -1,0 +1,13 @@
+package trefethen.talk.chat;
+
+public class Chat {
+	
+	private String name;
+	private int id;
+	
+	public Chat(String n, int i) {
+		name = n;
+		id = i;
+	}
+
+}

@@ -1,0 +1,5 @@
+package trefethen.talk.chat;
+
+public class ChatManager {
+
+}

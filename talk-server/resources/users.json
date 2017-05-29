@@ -1,1 +1,1 @@
-{"Users":[{"Chats":[],"Name":"Jake","Password":"test"},{"Chats":[],"Name":"Quinn","Password":"test2"},{"Chats":[],"Name":"Dan","Password":"test3"}]}
+{"Users":[{"ID":0,"Chats":[],"Name":"Jake","Password":"test"},{"ID":1,"Chats":[],"Name":"Quinn","Password":"test2"},{"ID":2,"Chats":[],"Name":"Dan","Password":"test3"}]}

@@ -37,7 +37,7 @@ public class UserManager {
             	JSONObject userObject = iterator.next();
             	User u = new User(userObject);                
             	users.put(u.getID(), u);
-                nextID = Math.max(nextID, u.getID() + 1); // not the safest but hey you can't delete users so
+                nextID++;
             }
             System.out.println("USER MANAGER : Users Loaded!");
 		} catch (Exception e) {
