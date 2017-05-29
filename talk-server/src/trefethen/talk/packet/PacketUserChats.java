@@ -9,8 +9,8 @@ import trefethen.talk.user.UserManager;
 
 public class PacketUserChats extends Packet {
 	
-	private Integer[] ids;
-	private String[] names;
+	public Integer[] ids;
+	public String[] names;
 	
 	public PacketUserChats() {
 		this.id = 4;

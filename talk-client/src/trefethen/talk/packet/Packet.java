@@ -100,7 +100,7 @@ public abstract class Packet {
 		packetMap.put(3, PacketLogout.class);
 		
 		packetMap.put(4, PacketUserChats.class);
-		
+		packetMap.put(5, PacketChatHistory.class);
 	}
 	
 }
