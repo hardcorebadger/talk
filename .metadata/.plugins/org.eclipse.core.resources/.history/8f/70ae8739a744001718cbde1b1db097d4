@@ -19,7 +19,7 @@ public class ChatManager {
 	
 	@SuppressWarnings("unchecked")
 	public static void loadChats() {
-		System.out.println("CHAT MANAGER : Loading Chats...");
+		System.out.println("USER MANAGER : Loading Users...");
 		JSONParser parser = new JSONParser();
 		try {
             Object obj = parser.parse(new FileReader(chatDataFile));
@@ -32,7 +32,7 @@ public class ChatManager {
             	chats.put(c.getID(), c);
                 nextID = Math.max(nextID, c.getID() + 1); // not the safest but hey you can't delete users so
             }
-            System.out.println("CHAT MANAGER : Chats Loaded!");
+            System.out.println("USER MANAGER : Users Loaded!");
 		} catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class ChatManager {
 	
 	@SuppressWarnings("unchecked")
 	public static void saveChats() {
-		System.out.println("CHAT MANAGER : Saving Chats...");
+		System.out.println("CHAT MANAGER : Saving Users...");
 		try {
 			JSONArray usersArray = new JSONArray();
 			Iterator<Chat> iterator = chats.values().iterator();
@@ -53,7 +53,7 @@ public class ChatManager {
 			FileWriter file = new FileWriter(chatDataFile);
 			file.write(obj.toJSONString());
 			file.close();
-			System.out.println("CHAT MANAGER : Chats Saved!");
+			System.out.println("CHAT MANAGER : Users Saved!");
 		} catch (Exception e) {
             e.printStackTrace();
         }

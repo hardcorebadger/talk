@@ -103,10 +103,6 @@ public class UserManager {
 		return true;
 	}
 	
-	public static User getUser(int id) {
-		return users.get(id);
-	}
-	
 	/*
 	 * Private Helpers
 	 */

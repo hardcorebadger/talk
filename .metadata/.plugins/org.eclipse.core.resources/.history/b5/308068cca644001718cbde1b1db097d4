@@ -1,0 +1,30 @@
+package trefethen.talk.chat;
+
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
+public class Chat {
+	
+	private String name;
+	private int id;
+	private ArrayList<Message> messages;
+	
+	public Chat(String n, int i) {
+		name = n;
+		id = i;
+		messages = new ArrayList<Message>();
+	}
+	
+	public Chat(JSONObject obj) {
+	}
+	
+	public JSONObject toJSON() {
+		return null;
+	}
+	
+	public int getID() {
+		return id;
+	}
+
+}

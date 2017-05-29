@@ -16,17 +16,13 @@ public class Message {
 	}
 	
 	public Message(JSONObject obj) {
-		int i = ((Long)obj.get("Sender")).intValue();
+		int i = ((Long)obj.get("ID")).intValue();
 		sender = UserManager.getUser(i);
 		message = (String) obj.get("Message");
 	}
 	
-	@SuppressWarnings("unchecked")
 	public JSONObject toJSON() {
-		JSONObject obj = new JSONObject();
-		obj.put("Sender", sender.getID());
-		obj.put("Message", message);
-		return obj;
+		return null;
 	}
 	
 	public void display() {

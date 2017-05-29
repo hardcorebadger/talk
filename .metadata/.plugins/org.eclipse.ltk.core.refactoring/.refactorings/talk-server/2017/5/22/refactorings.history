@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;users.json&apos; to &apos;resources&apos;&#x0A;- Original project: &apos;talk-server&apos;&#x0A;- Destination element: &apos;resources&apos;&#x0A;- Original element: &apos;users.json&apos;" description="Copy file" element1="resources/users.json" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1496086920647" target="/talk-server/resources" units="0" version="1.0"/>
+</session>

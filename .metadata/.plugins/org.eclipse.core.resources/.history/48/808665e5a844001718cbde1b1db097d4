@@ -28,19 +28,8 @@ public class Chat {
         }
 	}
 	
-	@SuppressWarnings("unchecked")
 	public JSONObject toJSON() {
-		JSONObject obj = new JSONObject();
-		obj.put("Name", name);
-		obj.put("ID", id);
-		
-		JSONArray messageArray = new JSONArray();
-		Iterator<Message> iterator = messages.iterator();
-		while (iterator.hasNext()) {
-			messageArray.add(iterator.next().toJSON());
-		}		
-		obj.put("Messages", messageArray);
-		return obj;
+		return null;
 	}
 	
 	public int getID() {
@@ -53,7 +42,6 @@ public class Chat {
 		while (iterator.hasNext()) {
 			iterator.next().display();
 		}
-		System.out.println("]");
 	}
 
 }

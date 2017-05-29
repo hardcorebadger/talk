@@ -21,7 +21,6 @@ public class Message {
 		message = (String) obj.get("Message");
 	}
 	
-	@SuppressWarnings("unchecked")
 	public JSONObject toJSON() {
 		JSONObject obj = new JSONObject();
 		obj.put("Sender", sender.getID());

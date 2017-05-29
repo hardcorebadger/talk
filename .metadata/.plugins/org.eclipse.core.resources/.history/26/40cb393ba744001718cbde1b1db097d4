@@ -32,7 +32,7 @@ public class ChatManager {
             	chats.put(c.getID(), c);
                 nextID = Math.max(nextID, c.getID() + 1); // not the safest but hey you can't delete users so
             }
-            System.out.println("CHAT MANAGER : Chats Loaded!");
+            System.out.println("USER MANAGER : Chats Loaded!");
 		} catch (Exception e) {
             e.printStackTrace();
         }
