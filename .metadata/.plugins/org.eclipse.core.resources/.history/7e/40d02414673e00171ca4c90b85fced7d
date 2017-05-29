@@ -1,6 +1,0 @@
-package trefethen.talk.user;
-
-public class User {
-	private string name;
-	private int id;
-}

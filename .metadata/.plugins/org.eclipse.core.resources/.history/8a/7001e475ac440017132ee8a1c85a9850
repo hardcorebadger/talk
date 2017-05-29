@@ -1,0 +1,9 @@
+package trefethen.talk.gui;
+
+public class CmdLineUI {
+	
+	public static void startCmdLineUI() {
+		System.out.println("Username:");
+	}
+
+}

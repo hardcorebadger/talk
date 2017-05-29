@@ -1,0 +1,15 @@
+package trefethen.talk.gui;
+
+public class CmdLineUI {
+	
+	public static void startCmdLineUI() {
+		System.out.println("=== Welcome to Talk CLI ===");
+		int userID = login();
+	}
+	
+	private static int login() {
+		System.out.println("Username:");
+		String answ = input.nextLine();
+	}
+
+}

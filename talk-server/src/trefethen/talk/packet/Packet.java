@@ -102,8 +102,9 @@ public abstract class Packet {
 		packetMap.put(0, PacketBlank.class);
 		packetMap.put(1, PacketLogin.class);
 		packetMap.put(2, PacketRegister.class);
-		packetMap.put(2, PacketLogout.class);
+		packetMap.put(3, PacketLogout.class);
 
+		packetMap.put(4, PacketUserChats.class);
 	}
 	
 }

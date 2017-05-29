@@ -99,6 +99,8 @@ public abstract class Packet {
 		packetMap.put(2, PacketRegister.class);
 		packetMap.put(3, PacketLogout.class);
 		
+		packetMap.put(4, PacketUserChats.class);
+		
 	}
 	
 }

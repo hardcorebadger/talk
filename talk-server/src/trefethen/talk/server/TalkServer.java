@@ -12,10 +12,6 @@ public class TalkServer {
 	public static void main(String[] args) {
 		UserManager.loadUsers();
 		ChatManager.loadChats();
-		UserManager.displayUsers();
-		ChatManager.displayChats();
-		UserManager.saveUsers();
-		ChatManager.saveChats();
 		server = new CommunicationServer(port);
 		new Thread(server).start();
 	}

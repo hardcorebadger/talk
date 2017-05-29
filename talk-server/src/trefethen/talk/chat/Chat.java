@@ -47,6 +47,10 @@ public class Chat {
 		return id;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public void display() {
 		System.out.println("CHAT: " + name + ":" + id + "[");
 		Iterator<Message> iterator = messages.iterator();

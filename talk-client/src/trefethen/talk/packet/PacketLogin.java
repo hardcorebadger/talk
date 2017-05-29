@@ -2,13 +2,14 @@ package trefethen.talk.packet;
 
 import java.io.IOException;
 
+import trefethen.talk.gui.CmdLineUI;
 import trefethen.talk.networking.CommunicationClient;
 
 public class PacketLogin extends Packet {
 	
-	private String name;
-	private String password;
-	private int loginID;
+	public String name;
+	public String password;
+	public int loginID;
 	
 	public PacketLogin() {
 		this.id = 1;
@@ -32,13 +33,7 @@ public class PacketLogin extends Packet {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
 		loginID = servlet.getInput().readInt();
-		if (loginID == -1) {
-			// Login Failed
-			System.out.println("Login Failed");
-		} else {
-			// Login Success
-			System.out.println("Login Success, user id: " + userID);
-		}
+		CmdLineUI.asyncOnLoginResponse(this);
 	}
 
 }

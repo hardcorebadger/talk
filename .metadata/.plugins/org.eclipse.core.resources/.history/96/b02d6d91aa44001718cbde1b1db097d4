@@ -1,0 +1,25 @@
+package trefethen.talk.packet;
+
+import java.io.IOException;
+
+import trefethen.talk.networking.CommunicationServlet;
+
+public class PacketUserChats extends Packet {
+	
+	public PacketUserChats() {
+		this.id = 3;
+	}
+
+	@Override
+	public void writeData(CommunicationServlet servlet) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void readData(CommunicationServlet servlet) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

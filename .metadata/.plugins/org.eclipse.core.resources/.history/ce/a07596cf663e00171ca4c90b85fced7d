@@ -1,9 +1,0 @@
-package trefethen.talk.util;
-
-public class JSONHelper {
-	
-	public static void test() {
-		JSONParser parser = new JSONParser();
-	}
-
-}

@@ -77,19 +77,31 @@ public class UserManager {
 		Iterator<User> iterator = users.values().iterator();
 		while (iterator.hasNext()) {
 			User u = iterator.next();
-			if (u.attemptLogin(name,  password)) {
+			int loginResult = u.attemptLogin(name,  password);
+			if (loginResult == 1) {
+				// login success
 				connections.put(s, u.getID());
 				return u.getID();
+			} else if (loginResult == -1) {
+				// wrong password error
+				return -1;
 			}
+			// else keep checking
 		}
-		return -1;
+		// user not found error
+		return -2;
 	}
 	
 	public static void logout(CommunicationServlet s) {
-		int userID = connections.get(s);
-		connections.remove(s);
-		s.disconnect(false);
-		users.remove(userID);
+		try {
+			int userID = connections.get(s);
+			System.out.println("USER MANAGER : User Logout: " + userID);
+			connections.remove(s);
+			s.disconnect(false);
+			users.remove(userID);
+		} catch (Exception e) {
+			// if the user wasn't logged in this isn't needed
+		}
 	}
 	
 	public static boolean register(String name, String password) {
@@ -105,6 +117,10 @@ public class UserManager {
 	
 	public static User getUser(int id) {
 		return users.get(id);
+	}
+	
+	public static User getUser(CommunicationServlet s) {
+		return users.get(connections.get(s));
 	}
 	
 	/*

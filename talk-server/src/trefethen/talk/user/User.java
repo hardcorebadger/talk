@@ -30,8 +30,14 @@ public class User {
         }
 	}
 	
-	public boolean attemptLogin(String n, String p) {
-		return (n.equals(name) && p.equals(password));
+	public int attemptLogin(String n, String p) {
+		if (n.equals(name)) {
+			if (p.equals(password))
+				return 1;
+			else
+				return -1;
+		} else 
+			return 0;
 	}
 	
 	public void display() {
@@ -65,5 +71,9 @@ public class User {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public ArrayList<Integer> getChats() {
+		return chats;
 	}
 }

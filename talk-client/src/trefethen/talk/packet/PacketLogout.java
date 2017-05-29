@@ -12,7 +12,7 @@ public class PacketLogout extends Packet {
 
 	@Override
 	public void writeData(CommunicationClient client) throws IOException {
-		
+		System.out.println("logout packet");
 	}
 
 	@Override

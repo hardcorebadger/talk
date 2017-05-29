@@ -1,0 +1,5 @@
+package trefethen.talk.packet;
+
+public class PacketUserChats {
+
+}

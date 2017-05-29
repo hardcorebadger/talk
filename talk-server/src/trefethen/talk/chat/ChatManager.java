@@ -65,5 +65,9 @@ public class ChatManager {
 			iterator.next().display();
 		}
 	}
+	
+	public static Chat getChat(int id) {
+		return chats.get(id);
+	}
 
 }

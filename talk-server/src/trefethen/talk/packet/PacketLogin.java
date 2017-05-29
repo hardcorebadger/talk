@@ -7,9 +7,9 @@ import trefethen.talk.user.UserManager;
 
 public class PacketLogin extends Packet {
 	
-	private String name;
-	private String password;
-	private int loginID;
+	public String name;
+	public String password;
+	public int loginID;
 	
 	public PacketLogin() {
 		this.id = 1;
