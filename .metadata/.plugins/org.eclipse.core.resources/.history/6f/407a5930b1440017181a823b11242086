@@ -4,17 +4,17 @@ import java.io.IOException;
 
 import trefethen.talk.networking.CommunicationClient;
 
-public class PacketLogin extends Packet {
+public class PacketRegister extends Packet {
 	
-	private String name;
-	private String password;
-	private int loginID;
+	public String name;
+	public String password;
+	public int responseCode;
 	
-	public PacketLogin() {
-		this.id = 1;
+	public PacketRegister() {
+		this.id = 2;
 	}
 	
-	public PacketLogin(String n, String p) {
+	public PacketRegister(String n, String p) {
 		this();
 		name = n;
 		password = p;
@@ -22,7 +22,6 @@ public class PacketLogin extends Packet {
 
 	@Override
 	public void writeData(CommunicationClient servlet) throws IOException {
-		
 		servlet.getOutput().writeUTF(name);
 		servlet.getOutput().writeUTF(password);
 	}
@@ -31,14 +30,7 @@ public class PacketLogin extends Packet {
 	public void readData(CommunicationClient servlet) throws IOException {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
-		loginID = servlet.getInput().readInt();
-		if (loginID == -1) {
-			// Login Failed
-			System.out.println("Login Failed");
-		} else {
-			// Login Success
-			System.out.println("Login Success, user id: " + userID);
-		}
+		responseCode = servlet.getInput().readInt();
 	}
 
 }

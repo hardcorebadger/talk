@@ -2,13 +2,14 @@ package trefethen.talk.packet;
 
 import java.io.IOException;
 
+import trefethen.talk.gui.CmdLineUI;
 import trefethen.talk.networking.CommunicationClient;
 
 public class PacketRegister extends Packet {
 	
-	private String name;
-	private String password;
-	private int responseCode;
+	public String name;
+	public String password;
+	public int responseCode;
 	
 	public PacketRegister() {
 		this.id = 2;
@@ -31,13 +32,7 @@ public class PacketRegister extends Packet {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
 		responseCode = servlet.getInput().readInt();
-		if (responseCode == 1) {
-			// Register Successful
-			System.out.println("success");
-		} else {
-			// Username Taken
-			System.out.println("username in use");
-		}
+		CmdLineUI.asyncOnRegisterResponse(this);
 	}
 
 }

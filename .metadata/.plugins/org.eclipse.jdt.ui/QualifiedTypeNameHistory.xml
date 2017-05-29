@@ -8,15 +8,17 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="trefethen.talk.packet.PacketLogin"/>
-<fullyQualifiedTypeName name="trefethen.talk.client.TalkClient"/>
-<fullyQualifiedTypeName name="trefethen.talk.packet.PacketRegister"/>
 <fullyQualifiedTypeName name="trefethen.talk.networking.CommunicationServlet"/>
 <fullyQualifiedTypeName name="trefethen.talk.packet.PacketLogout"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="trefethen.talk.user.User"/>
-<fullyQualifiedTypeName name="trefethen.talk.user.UserManager"/>
 <fullyQualifiedTypeName name="trefethen.talk.chat.ChatManager"/>
 <fullyQualifiedTypeName name="trefethen.talk.networking.CommunicationClient"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="trefethen.talk.client.TalkClient"/>
+<fullyQualifiedTypeName name="trefethen.talk.packet.PacketLogin"/>
+<fullyQualifiedTypeName name="trefethen.talk.user.UserManager"/>
+<fullyQualifiedTypeName name="trefethen.talk.packet.PacketRegister"/>
+<fullyQualifiedTypeName name="trefethen.talk.gui.CmdLineUI"/>
 </qualifiedTypeNameHistroy>
