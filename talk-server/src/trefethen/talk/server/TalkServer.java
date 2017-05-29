@@ -11,6 +11,7 @@ public class TalkServer {
 	public static void main(String[] args) {
 		UserManager.loadUsers();
 		UserManager.displayUsers();
+		UserManager.saveUsers();
 		server = new CommunicationServer(port);
 		new Thread(server).start();
 	}

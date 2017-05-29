@@ -37,7 +37,6 @@ public abstract class Packet {
 			packet.userID = userID;
 			packet.readData(servlet);
 			return packet;
-
 		} catch (IOException e) {
 			System.out.println("Failed to read");
 			try {

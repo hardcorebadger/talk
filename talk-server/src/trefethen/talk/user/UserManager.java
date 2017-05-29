@@ -35,8 +35,8 @@ public class UserManager {
             Iterator<JSONObject> iterator = userJSON.iterator();
             while (iterator.hasNext()) {
             	JSONObject userObject = iterator.next();
-                User u = new User((String) userObject.get("Name"), (String) userObject.get("Password"), nextID);
-                users.put(nextID, u);
+            	User u = new User(userObject, nextID);                
+            	users.put(nextID, u);
                 nextID++;
             }
             System.out.println("USER MANAGER : Users Loaded!");

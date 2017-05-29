@@ -1,5 +1,9 @@
 package trefethen.talk.user;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class User {
@@ -7,11 +11,23 @@ public class User {
 	private String name;
 	private String password;
 	private int id;
+	private ArrayList<Integer> chats;
 	
 	public User(String n, String p, int i) {
 		name = n;
 		password = p;
 		id = i;
+		chats = new ArrayList<Integer>();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public User(JSONObject userObject, int id) {
+        this((String) userObject.get("Name"), (String) userObject.get("Password"), id);
+        JSONArray chatsJSON = (JSONArray) userObject.get("Chats");
+		Iterator<Long> iterator = chatsJSON.iterator();
+        while (iterator.hasNext()) {
+        	chats.add(iterator.next().intValue());
+        }
 	}
 	
 	public boolean attemptLogin(String n, String p) {
@@ -19,7 +35,12 @@ public class User {
 	}
 	
 	public void display() {
-		System.out.println(name + ":" + password + ":" + id);
+		System.out.print(name + ":" + password + ":" + id + ":[");
+		Iterator<Integer> iterator = chats.iterator();
+		while (iterator.hasNext()) {
+			System.out.print(iterator.next() + ",");
+		}
+		System.out.println("]");
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -27,6 +48,13 @@ public class User {
 		JSONObject obj = new JSONObject();
 		obj.put("Name", name);
 		obj.put("Password", password);
+
+		JSONArray chatArray = new JSONArray();
+		Iterator<Integer> iterator = chats.iterator();
+		while (iterator.hasNext()) {
+			chatArray.add(iterator.next());
+		}		
+		obj.put("Chats", chatArray);
 		return obj;
 	}
 	
