@@ -9,6 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import trefethen.talk.user.User;
+
 public class ChatManager {
 	
 	private static String chatDataFile = "resources/chats.json";
@@ -31,6 +33,10 @@ public class ChatManager {
             	Chat c = new Chat(chatObject);                
             	chats.put(c.getID(), c);
                 nextID = Math.max(nextID, c.getID() + 1); // not the safest but hey you can't delete users so
+            }
+            if (chats.get(0) == null) {
+            	// initial load, make the global chat
+            	createChat("Global Chatroom");
             }
             System.out.println("CHAT MANAGER : Chats Loaded!");
 		} catch (Exception e) {
@@ -69,5 +75,19 @@ public class ChatManager {
 	public static Chat getChat(int id) {
 		return chats.get(id);
 	}
-
+	
+	public static void createChat(User u1, User u2) {
+		Chat c = new Chat(u1.getName() + " & " + u2.getName(), nextID);
+		chats.put(nextID, c);
+		u1.addChat(nextID);
+		u2.addChat(nextID);
+		nextID++;
+	}
+	
+	private static void createChat(String n) {
+		Chat c = new Chat(n, nextID);
+		chats.put(nextID, c);
+		nextID++;
+	}
+	
 }

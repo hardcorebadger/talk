@@ -2,6 +2,7 @@ package trefethen.talk.user;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -9,7 +10,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import trefethen.talk.chat.ChatManager;
 import trefethen.talk.networking.CommunicationServlet;
+import trefethen.talk.packet.Packet;
 
 public class UserManager {
 	
@@ -81,6 +84,7 @@ public class UserManager {
 			if (loginResult == 1) {
 				// login success
 				connections.put(s, u.getID());
+				u.login(s);
 				return u.getID();
 			} else if (loginResult == -1) {
 				// wrong password error
@@ -96,9 +100,9 @@ public class UserManager {
 		try {
 			int userID = connections.get(s);
 			System.out.println("USER MANAGER : User Logout: " + userID);
+			getUser(s).logout();
 			connections.remove(s);
 			s.disconnect(false);
-			users.remove(userID);
 		} catch (Exception e) {
 			// if the user wasn't logged in this isn't needed
 		}
@@ -110,7 +114,15 @@ public class UserManager {
 			if (iterator.next().getName().equals(name))
 				return false;
 		}
-		users.put(nextID, new User(name, password, nextID));
+		User u = new User(name, password, nextID);
+		// Add global chat
+		u.addChat(0);
+		// Create direct chats
+		iterator = users.values().iterator();
+		while (iterator.hasNext()) {
+			ChatManager.createChat(iterator.next(), u);
+		}
+		users.put(nextID, u);
 		nextID++;
 		return true;
 	}
@@ -121,6 +133,15 @@ public class UserManager {
 	
 	public static User getUser(CommunicationServlet s) {
 		return users.get(connections.get(s));
+	}
+	
+	public static void broadcastPacket(ArrayList<User> broadcast, User except, Packet p) {
+		Iterator<User> iterator = broadcast.iterator();
+		while (iterator.hasNext()) {
+			User u = iterator.next();
+			if (u.getID() != except.getID())
+				u.sendPacket(p);
+		}
 	}
 	
 	/*

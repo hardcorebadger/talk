@@ -6,16 +6,22 @@ import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import trefethen.talk.packet.PacketChatMessage;
+import trefethen.talk.user.User;
+import trefethen.talk.user.UserManager;
+
 public class Chat {
 	
 	private String name;
 	private int id;
 	private ArrayList<Message> messages;
+	private ArrayList<User> listeners;
 	
 	public Chat(String n, int i) {
 		name = n;
 		id = i;
 		messages = new ArrayList<Message>();
+		listeners = new ArrayList<User>();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -58,6 +64,32 @@ public class Chat {
 			iterator.next().display();
 		}
 		System.out.println("]");
+	}
+	
+	public String[] getUsernameArray() {
+		String[] usernames = new String[messages.size()];
+		for (int i = 0; i < usernames.length; i++) {
+			usernames[i] = messages.get(i).getName();
+		}
+		return usernames;
+	}
+	
+	public String[] getMessagesArray() {
+		String[] msg = new String[messages.size()];
+		for (int i = 0; i < msg.length; i++) {
+			msg[i] = messages.get(i).getMessage();
+		}
+		return msg;
+	}
+	
+	public void addMessage(User u, String m) {
+		Message msg = new Message(u,m);
+		messages.add(msg);
+		UserManager.broadcastPacket(listeners, u, new PacketChatMessage(msg));
+	}
+
+	public void addListener(User user) {
+		listeners.add(user);
 	}
 
 }

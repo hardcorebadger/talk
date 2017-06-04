@@ -6,12 +6,17 @@ import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import trefethen.talk.chat.Chat;
+import trefethen.talk.networking.CommunicationServlet;
+import trefethen.talk.packet.Packet;
+
 public class User {
 	
 	private String name;
 	private String password;
 	private int id;
 	private ArrayList<Integer> chats;
+	private CommunicationServlet servlet;
 	
 	public User(String n, String p, int i) {
 		name = n;
@@ -38,6 +43,14 @@ public class User {
 				return -1;
 		} else 
 			return 0;
+	}
+	
+	public void login(CommunicationServlet s) {
+		servlet = s;
+	}
+	
+	public void logout() {
+		servlet = null;
 	}
 	
 	public void display() {
@@ -75,5 +88,13 @@ public class User {
 	
 	public ArrayList<Integer> getChats() {
 		return chats;
+	}
+	
+	public void sendPacket(Packet p) {
+		servlet.addPacket(p);
+	}
+	
+	public void addChat(int cid) {
+		chats.add(cid);
 	}
 }

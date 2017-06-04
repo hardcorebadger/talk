@@ -1,0 +1,34 @@
+package trefethen.talk.packet;
+
+import java.io.IOException;
+
+import trefethen.talk.networking.CommunicationClient;
+
+
+public class PacketChatHistory extends Packet {
+	
+	public int chatID;
+	
+	public PacketChatHistory() {
+		this.id = 5;
+	}
+	
+	public PacketChatHistory(int i) {
+		this.id = 5;
+		chatID = i;
+	}
+
+
+	@Override
+	public void writeData(CommunicationClient servlet) throws IOException {
+		// Client sends up a chat id
+		servlet.getOutput().writeInt(chatID);
+	}
+
+	@Override
+	public void readData(CommunicationClient servlet) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

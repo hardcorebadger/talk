@@ -32,5 +32,13 @@ public class Message {
 	public void display() {
 		System.out.println(sender.getName() + " : " + message);
 	}
+	
+	public String getName() {
+		return sender.getName();
+	}
+	
+	public String getMessage() {
+		return message;
+	}
 
 }
