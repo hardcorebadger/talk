@@ -1,0 +1,36 @@
+package trefethen.talk.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import net.miginfocom.swing.MigLayout;
+
+public class NavBar extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	public JLabel label;
+	public JButton leftAction;
+
+	public NavBar() {
+		setLayout(new MigLayout("wrap 4"));
+		setMaximumSize(new Dimension(400, 80));
+		setMinimumSize(new Dimension(400, 80));
+		setPreferredSize(new Dimension(400, 80));
+		setBackground(GUIFactory.white);
+		setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light));
+		
+		leftAction = new JButton("X");
+		add(leftAction);
+		
+		label = new JLabel("TALK", JLabel.CENTER);
+		add(label, "span 2");
+		
+	}
+
+}

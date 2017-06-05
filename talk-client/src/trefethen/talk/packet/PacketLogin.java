@@ -3,6 +3,7 @@ package trefethen.talk.packet;
 import java.io.IOException;
 
 import trefethen.talk.gui.CmdLineUI;
+import trefethen.talk.gui.GUIManager;
 import trefethen.talk.networking.CommunicationClient;
 
 public class PacketLogin extends Packet {
@@ -33,7 +34,7 @@ public class PacketLogin extends Packet {
 		name = servlet.getInput().readUTF();
 		password = servlet.getInput().readUTF();
 		loginID = servlet.getInput().readInt();
-		CmdLineUI.asyncOnLoginResponse(this);
+		GUIManager.asyncOnLoginResponse(this);
 	}
 
 }

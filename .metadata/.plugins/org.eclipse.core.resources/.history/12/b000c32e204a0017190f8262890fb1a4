@@ -1,0 +1,20 @@
+package trefethen.talk.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class Notification extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	public Notification(String s) {
+		setMaximumSize(new Dimension(400, 20));
+		setMinimumSize(new Dimension(400, 20));
+		setPreferredSize(new Dimension(400, 20));
+		setLocation(0,0);
+		setBackground(GUIFactory.light);
+		System.out.println("yo");
+	}
+
+}

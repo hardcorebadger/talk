@@ -1,0 +1,19 @@
+package trefethen.talk.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class ContentPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	public ContentPanel() {
+		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		setMaximumSize(new Dimension(400, 320));
+		setBackground(GUIFactory.white);
+	}
+
+}

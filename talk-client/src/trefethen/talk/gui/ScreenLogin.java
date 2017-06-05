@@ -28,8 +28,10 @@ public class ScreenLogin extends Screen {
 	@Override
 	public void onEnable() {
 		
+		GUIManager.setNavBar("LOGIN");
+		
 		username = GUIFactory.createTextField();
-		password = GUIFactory.createTextField();
+		password = GUIFactory.createPasswordField();
 		login = GUIFactory.createButton("Login");
 		register = GUIFactory.createButton("Register");
 		
@@ -44,10 +46,11 @@ public class ScreenLogin extends Screen {
 		    }
 		});
 		
-//		GUIManager.contentPanel.add(GUIFactory.wrap(username));
-//		GUIManager.contentPanel.add(GUIFactory.wrap(password));
-//		GUIManager.contentPanel.add(GUIFactory.wrap(login));
-//		GUIManager.contentPanel.add(GUIFactory.wrap(register));
+		GUIManager.contentPanel.content.add(GUIFactory.wrap(username));
+		GUIManager.contentPanel.content.add(GUIFactory.wrap(password));
+		GUIManager.contentPanel.content.add(GUIFactory.wrap(login));
+		GUIManager.contentPanel.content.add(GUIFactory.wrap(register));
+		
 	}
 
 	@Override

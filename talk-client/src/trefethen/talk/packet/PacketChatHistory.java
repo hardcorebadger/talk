@@ -2,7 +2,7 @@ package trefethen.talk.packet;
 
 import java.io.IOException;
 
-import trefethen.talk.gui.CmdLineUI;
+import trefethen.talk.gui.GUIManager;
 import trefethen.talk.networking.CommunicationClient;
 
 
@@ -37,7 +37,7 @@ public class PacketChatHistory extends Packet {
 			usernames[i] = servlet.getInput().readUTF();
 			messages[i] = servlet.getInput().readUTF();
 		}
-		CmdLineUI.asyncOnChatHistoryResponse(this);
+		GUIManager.asyncOnChatHistoryResponse(this);
 	}
 
 }

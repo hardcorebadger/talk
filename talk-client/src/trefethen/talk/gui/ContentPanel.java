@@ -2,17 +2,28 @@ package trefethen.talk.gui;
 
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
-public class ContentPanel extends JPanel {
+public class ContentPanel extends JScrollPane {
 
 	private static final long serialVersionUID = 1L;
 	
+	public JPanel content;
+	
 	public ContentPanel() {
-		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		setMaximumSize(new Dimension(400, 320));
-		setBackground(GUIFactory.white);
+		
+		content = new JPanel();
+		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
+		content.setBackground(GUIFactory.white);
+
+		setViewportView(content);
+		setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		setBorder(BorderFactory.createEmptyBorder());
 	}
 
 }

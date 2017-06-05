@@ -1,0 +1,39 @@
+package trefethen.talk.gui;
+
+import trefethen.talk.packet.PacketUserChats;
+
+public class ScreenMainMenu extends Screen {
+	
+	private Integer[] ids;
+	private String[] names;
+	
+	public ScreenMainMenu(PacketUserChats p) {
+		ids = p.ids;
+		names = p.names;
+	}
+
+	@Override
+	public void onOpen() {
+		// TODO Auto-generated method stub
+		GUIManager.pushNotification("Welcome back, " + GUIManager.username + "!");
+	}
+
+	@Override
+	public void onEnable() {
+		// TODO Auto-generated method stub
+		System.out.println("yew");
+	}
+
+	@Override
+	public void onDisable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onClose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

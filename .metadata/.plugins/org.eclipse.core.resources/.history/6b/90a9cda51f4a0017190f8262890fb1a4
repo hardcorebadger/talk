@@ -1,0 +1,14 @@
+package trefethen.talk.gui;
+
+import javax.swing.JPanel;
+
+public class Notification extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	public Notification() {
+		setSize(400,20);
+		setBackground(GUIFactory.light);
+	}
+
+}
