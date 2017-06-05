@@ -1,0 +1,28 @@
+package trefethen.talk.gui;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class GUIFactory {
+	
+	public static Color white = Color.white;
+	public static Color light = new Color(230,231,232);
+	public static Dimension standardDimension = new Dimension(400,50);
+	
+	public static JTextField createTextField() {
+		JTextField text = new JTextField(20);
+		text.setMaximumSize(standardDimension);
+		return text;
+	}
+	
+	public static JButton createButton() {
+		JButton btn = new JButton("Button");
+		btn.setPreferredSize(standardDimension);
+		btn.setMaximumSize(standardDimension);
+		return btn;
+	}
+
+}

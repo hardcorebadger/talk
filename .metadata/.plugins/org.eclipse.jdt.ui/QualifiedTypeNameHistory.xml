@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="trefethen.talk.packet.PacketUserChats"/>
 <fullyQualifiedTypeName name="trefethen.talk.networking.CommunicationClient"/>
 <fullyQualifiedTypeName name="trefethen.talk.packet.PacketChatHistory"/>
-<fullyQualifiedTypeName name="trefethen.talk.chat.ChatManager"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="trefethen.talk.packet.Packet"/>
 <fullyQualifiedTypeName name="trefethen.talk.networking.CommunicationServlet"/>
@@ -28,4 +27,23 @@
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 <fullyQualifiedTypeName name="trefethen.talk.user.User"/>
 <fullyQualifiedTypeName name="trefethen.talk.chat.Chat"/>
+<fullyQualifiedTypeName name="trefethen.talk.chat.ChatManager"/>
+<fullyQualifiedTypeName name="trefethen.talk.gui.AppFrame"/>
+<fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
+<fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="trefethen.talk.gui.GUIManager"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.awt.GridLayout"/>
+<fullyQualifiedTypeName name="javax.swing.Box"/>
+<fullyQualifiedTypeName name="java.awt.Container"/>
+<fullyQualifiedTypeName name="javax.swing.JComponent"/>
 </qualifiedTypeNameHistroy>

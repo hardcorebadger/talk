@@ -1,11 +1,7 @@
 package trefethen.talk.client;
 
-import trefethen.talk.gui.AppFrame;
-import trefethen.talk.gui.CmdLineUI;
 import trefethen.talk.gui.GUIManager;
 import trefethen.talk.networking.CommunicationClient;
-import trefethen.talk.packet.PacketLogin;
-import trefethen.talk.packet.PacketLogout;
 
 public class TalkClient {
 	

@@ -1,0 +1,37 @@
+package trefethen.talk.gui;
+
+import javax.swing.JFrame;
+
+public class ScreenLogin extends Screen {
+	
+	public ScreenLogin() {
+		
+	}
+
+	@Override
+	public void onOpen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onEnable() {
+//		GUIManager.contentPanel.add(GUIFactory.createTextField());
+//		GUIManager.contentPanel.add(GUIFactory.createTextField());
+		GUIManager.contentPanel.add(GUIFactory.createButton(), JFrame.CENTER_ALIGNMENT);
+//		GUIManager.contentPanel.add(GUIFactory.createButton());
+	}
+
+	@Override
+	public void onDisable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onClose() {
+		// TODO Auto-generated method stub 
+		
+	}
+
+}

@@ -1,0 +1,43 @@
+package trefethen.talk.gui;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class ScreenLogin extends Screen {
+	
+	private JTextField username;
+	private JTextField password;
+	private JButton login;
+	private JButton register;
+	
+	public ScreenLogin() {
+		
+	}
+
+	@Override
+	public void onOpen() {
+		username = GUIFactory.createTextField();
+		password = GUIFactory.createTextField();
+		login = GUIFactory.createButton();
+		register = GUIFactory.createButton();
+	}
+
+	@Override
+	public void onEnable() {
+		GUIManager.contentPanel.add(GUIFactory.wrap(username));
+		GUIManager.contentPanel.add(GUIFactory.wrap(password));
+		GUIManager.contentPanel.add(GUIFactory.wrap(login));
+		GUIManager.contentPanel.add(GUIFactory.wrap(register));
+	}
+
+	@Override
+	public void onDisable() {
+		
+	}
+
+	@Override
+	public void onClose() {
+		
+	}
+
+}

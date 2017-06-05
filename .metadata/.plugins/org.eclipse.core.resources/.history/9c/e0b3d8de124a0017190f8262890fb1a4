@@ -1,0 +1,37 @@
+package trefethen.talk.gui;
+
+import java.awt.Container;
+import java.awt.Dimension;
+
+import javax.swing.BoxLayout;
+import javax.swing.JLayeredPane;
+
+public class ContentPanel extends JLayeredPane {
+
+	private static final long serialVersionUID = 1L;
+	
+	public Container content;
+	public Container overlay;
+	
+	public ContentPanel() {
+		
+		setLayout(null);
+		setMaximumSize(new Dimension(400, 320));
+		setBackground(GUIFactory.white);
+		
+		content = new Container();
+		overlay = new Container();
+				
+		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
+		content.setSize(new Dimension(400, 320));
+		add(content,0);
+		
+		overlay.setLayout(new BoxLayout(overlay,BoxLayout.Y_AXIS));
+		overlay.setSize(new Dimension(400, 40));
+		overlay.setLocation(0, 0);
+		overlay.setBackground(GUIFactory.light);
+		add(overlay,500);
+
+	}
+
+}
