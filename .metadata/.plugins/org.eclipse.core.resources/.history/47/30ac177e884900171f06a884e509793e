@@ -1,0 +1,48 @@
+package trefethen.talk.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class AppFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel navPanel;
+	private JPanel contentPanel;
+	private Container content;
+
+	public AppFrame() {
+		super("Talk");
+		
+		setSize(400,400);
+		
+		content = this.getContentPane();
+		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
+		content.setBackground(GUIFactory.white);
+		
+		navPanel = new JPanel();
+		navPanel.setMaximumSize(new Dimension(400, 80));
+		navPanel.setBackground(Color.black);
+		navPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light));
+		
+//		JLabel l = new JLabel("LOGIN");
+//		navPanel.add(l, BorderLayout.CENTER);
+		
+		contentPanel = new JPanel();
+		contentPanel.setMaximumSize(new Dimension(content.getWidth(), 320));
+
+		content.add(navPanel);
+		content.add(contentPanel);
+		
+		setResizable(false);
+		setVisible(true);
+	}
+	
+}

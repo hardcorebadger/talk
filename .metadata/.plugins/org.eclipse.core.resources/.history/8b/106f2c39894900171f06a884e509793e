@@ -1,0 +1,7 @@
+package trefethen.talk.gui;
+
+public class GUIManager {
+	
+	public static void initialize();
+
+}

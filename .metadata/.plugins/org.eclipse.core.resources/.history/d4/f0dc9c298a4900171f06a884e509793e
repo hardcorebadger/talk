@@ -1,0 +1,16 @@
+package trefethen.talk.gui;
+
+import java.awt.Container;
+
+import javax.swing.JFrame;
+
+public class GUIManager {
+	
+	private static JFrame frame;
+	private static Container frameContainer;
+		
+	public static void initialize() {
+		
+	}
+
+}

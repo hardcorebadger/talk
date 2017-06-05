@@ -1,0 +1,18 @@
+package trefethen.talk.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+
+public class NavBar extends JPanel {
+	
+	public NavBar() {
+		setLayout(new BorderLayout());
+		setMaximumSize(new Dimension(400, 80));
+		setBackground(GUIFactory.white);
+		setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light));
+	}
+
+}

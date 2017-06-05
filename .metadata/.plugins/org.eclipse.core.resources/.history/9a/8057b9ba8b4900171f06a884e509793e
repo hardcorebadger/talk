@@ -1,0 +1,21 @@
+package trefethen.talk.gui;
+
+public class Screen {
+	
+	public void onOpen() {
+		
+	}
+	
+	public void onEnable() {
+		
+	}
+	
+	public void onDisable() {
+		
+	}
+	
+	public void onClose() {
+		
+	}
+
+}

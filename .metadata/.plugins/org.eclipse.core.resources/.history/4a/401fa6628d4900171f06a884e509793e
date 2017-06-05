@@ -1,0 +1,27 @@
+package trefethen.talk.gui;
+
+public class Screen {
+	
+	public String name;
+	
+	public Screen(String name) {
+		this.name = name;
+	}
+	
+	public void onOpen() {
+		onEnable();
+	}
+	
+	public void onEnable() {
+		GUIManager.setNavBar(name);
+	}
+	
+	public void onDisable() {
+		
+	}
+	
+	public void onClose() {
+		
+	}
+
+}

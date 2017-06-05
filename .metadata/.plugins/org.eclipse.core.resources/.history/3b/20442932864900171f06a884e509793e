@@ -1,0 +1,35 @@
+package trefethen.talk.gui;
+
+import java.awt.Color;
+import java.awt.Container;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class AppFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel navPanel;
+	private JPanel contentPanel;
+	private Container content;
+
+	public AppFrame() {
+		super("Talk");
+		
+		setSize(400,400);
+		setResizable(false);
+		setVisible(true);
+
+		content = this.getContentPane();
+		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
+		
+		navPanel = new JPanel();
+		navPanel.setSize(content.getWidth(), 80);
+		navPanel.setBackground(new Color(0,0,0));
+		contentPanel = new JPanel();
+		content.add(navPanel);
+		content.add(contentPanel);
+	}
+	
+}

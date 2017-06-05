@@ -1,0 +1,11 @@
+package trefethen.talk.gui;
+
+import javax.swing.JPanel;
+
+public class NavBar extends JPanel {
+	
+	public NavBar() {
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package trefethen.talk.gui;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class AppFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel panel;
+
+	public AppFrame() {
+		super("Talk");
+		setSize(400,400);
+		setResizable(false);
+		panel = new JPanel();
+		add(panel);
+		setVisible(true);
+	}
+	
+}

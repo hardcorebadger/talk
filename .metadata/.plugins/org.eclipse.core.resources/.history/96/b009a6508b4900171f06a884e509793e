@@ -1,0 +1,40 @@
+package trefethen.talk.gui;
+
+import java.awt.Container;
+import java.util.Stack;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+public class GUIManager {
+	
+	private static JFrame frame;
+	private static Container frameContainer;
+	
+	private static NavBar navBar;
+	private static ContentPanel contentPanel;
+	
+	private static Stack<Screen> screenStack = new Stack<>();
+		
+	public static void initialize() {
+		frame = new JFrame("Talk");
+		frame.setSize(400,400);
+		
+		frameContainer = frame.getContentPane();
+		frameContainer.setLayout(new BoxLayout(frameContainer,BoxLayout.Y_AXIS));
+		frameContainer.setBackground(GUIFactory.white);
+		
+		navBar = new NavBar();
+		frameContainer.add(navBar);
+		
+		contentPanel = new ContentPanel();
+		frameContainer.add(contentPanel);
+		
+		frame.setResizable(false);
+		frame.setVisible(true);
+		
+		frame.setResizable(false);
+		frame.setVisible(true);
+	}
+
+}

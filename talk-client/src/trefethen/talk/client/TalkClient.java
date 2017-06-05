@@ -1,6 +1,8 @@
 package trefethen.talk.client;
 
+import trefethen.talk.gui.AppFrame;
 import trefethen.talk.gui.CmdLineUI;
+import trefethen.talk.gui.GUIManager;
 import trefethen.talk.networking.CommunicationClient;
 import trefethen.talk.packet.PacketLogin;
 import trefethen.talk.packet.PacketLogout;
@@ -12,13 +14,17 @@ public class TalkClient {
 	public static int userID;
 	
 	public static void main(String[] args) {
+		
+		GUIManager.initialize();
+		
 		client = new CommunicationClient("localhost", 8888);
 		communicationThread = new Thread(client);
 		communicationThread.start();
 	}
 	
 	public static void onConnect() {
-		CmdLineUI.startCmdLineUI();
+		
+//		CmdLineUI.startCmdLineUI();
 	}
 
 }

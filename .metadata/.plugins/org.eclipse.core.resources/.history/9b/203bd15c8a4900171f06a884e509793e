@@ -1,0 +1,23 @@
+package trefethen.talk.gui;
+
+import java.awt.Container;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+public class GUIManager {
+	
+	private static JFrame frame;
+	private static Container frameContainer;
+		
+	public static void initialize() {
+		frame = new JFrame("Talk");
+		
+		frameContainer = frame.getContentPane();
+		frameContainer.setLayout(new BoxLayout(frameContainer,BoxLayout.Y_AXIS));
+		frameContainer.setBackground(GUIFactory.white);
+		
+		frameContainer.add(new NavBar());
+	}
+
+}

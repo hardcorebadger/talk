@@ -1,0 +1,32 @@
+package trefethen.talk.gui;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JLabel;
+
+public class Screen {
+	
+	public String name;
+	
+	public Screen(String name) {
+		this.name = name;
+	}
+	
+	public void onOpen() {
+		onEnable();
+	}
+	
+	public void onEnable() {
+		GUIManager.setNavBar(name);
+		GUIManager.contentPanel.add(new JLabel(name, JLabel.CENTER), BorderLayout.CENTER);
+	}
+	
+	public void onDisable() {
+		
+	}
+	
+	public void onClose() {
+		
+	}
+
+}
