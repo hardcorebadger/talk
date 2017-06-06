@@ -14,6 +14,7 @@ public class ScreenMainMenu extends Screen {
 	
 	private Integer[] ids;
 	private String[] names;
+	private boolean shouldRefresh = false;
 	
 	public ScreenMainMenu(PacketUserChats p) {
 		ids = p.ids;
@@ -28,6 +29,10 @@ public class ScreenMainMenu extends Screen {
 
 	@Override
 	public void onEnable() {
+		if (shouldRefresh) {
+			TalkClient.client.addPacket(new PacketUserChats());
+			return;
+		}
 		
 		GUIManager.setNavBar("TALK");
 		
@@ -38,6 +43,7 @@ public class ScreenMainMenu extends Screen {
 				public void actionPerformed(ActionEvent actionEvent) {
 					int i = Integer.parseInt(actionEvent.getActionCommand());
 					GUIManager.chatName = names[i];
+					GUIManager.chatID = ids[i];
 					TalkClient.client.addPacket(new PacketChatHistory(ids[i]));
 				}
 			});
@@ -48,13 +54,20 @@ public class ScreenMainMenu extends Screen {
 	@Override
 	public void onDisable() {
 		// TODO Auto-generated method stub
-		
+		shouldRefresh = true;
 	}
 
 	@Override
 	public void onClose() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void refresh(PacketUserChats p) {
+		ids = p.ids;
+		names = p.names;
+		shouldRefresh = false;
+		onEnable();
 	}
 
 }

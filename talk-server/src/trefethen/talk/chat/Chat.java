@@ -85,11 +85,18 @@ public class Chat {
 	public void addMessage(User u, String m) {
 		Message msg = new Message(u,m);
 		messages.add(msg);
-		UserManager.broadcastPacket(listeners, u, new PacketChatMessage(msg));
+		Iterator<User> iterator = listeners.iterator();
+		while (iterator.hasNext()) {
+			iterator.next().sendPacket(new PacketChatMessage(msg));
+		}
 	}
 
 	public void addListener(User user) {
 		listeners.add(user);
+	}
+	
+	public void removeListener(User u) {
+		listeners.remove(u);
 	}
 
 }

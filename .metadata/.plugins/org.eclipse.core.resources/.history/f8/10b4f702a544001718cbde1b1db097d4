@@ -1,8 +1,0 @@
-package trefethen.talk.chat;
-
-public class Chat {
-	
-	private String name;
-	private int id;
-
-}

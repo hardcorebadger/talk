@@ -38,6 +38,7 @@ public class PacketUserChats extends Packet {
 	@Override
 	public void readData(CommunicationServlet servlet) throws IOException {
 		// respond with the user chats
+		ChatManager.removeListener(UserManager.getUser(servlet));
 		servlet.addPacket(new PacketUserChats(UserManager.getUser(servlet)));
 	}
 

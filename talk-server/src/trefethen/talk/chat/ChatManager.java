@@ -84,6 +84,13 @@ public class ChatManager {
 		nextID++;
 	}
 	
+	public static void removeListener(User u) {
+		Iterator<Chat> iterator = chats.values().iterator();
+		while (iterator.hasNext()) {
+			iterator.next().removeListener(u);
+		}
+	}
+	
 	private static void createChat(String n) {
 		Chat c = new Chat(n, nextID);
 		chats.put(nextID, c);

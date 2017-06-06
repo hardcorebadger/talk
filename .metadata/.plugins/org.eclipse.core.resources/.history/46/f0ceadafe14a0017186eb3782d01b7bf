@@ -1,0 +1,49 @@
+package trefethen.talk.gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+import trefethen.talk.client.TalkClient;
+import trefethen.talk.packet.PacketChatHistory;
+
+public class ScreenChat extends Screen {
+	
+	private String[] messages;
+	private String[] usernames;
+	
+	public ScreenChat(PacketChatHistory p) {
+		usernames = p.usernames;
+		messages = p.messages;
+	}
+
+	@Override
+	public void onOpen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onEnable() {
+		// TODO Auto-generated method stub
+		GUIManager.setNavBar(GUIManager.chatName.toUpperCase());
+		
+		for (int i = 0; i < messages.length; i++) {
+			GUIManager.contentPanel.content.add(GUIFactory.createChatMessage(usernames[i], messages[i]));
+		}
+	}
+
+	@Override
+	public void onDisable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onClose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

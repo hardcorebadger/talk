@@ -3,6 +3,7 @@ package trefethen.talk.packet;
 import java.io.IOException;
 
 import trefethen.talk.gui.CmdLineUI;
+import trefethen.talk.gui.GUIManager;
 import trefethen.talk.networking.CommunicationClient;
 
 public class PacketChatMessage extends Packet {
@@ -33,7 +34,7 @@ public class PacketChatMessage extends Packet {
 		// TODO Auto-generated method stub
 		name = client.getInput().readUTF();
 		message = client.getInput().readUTF();
-		CmdLineUI.asynOnChatMessage(this);
+		GUIManager.asynOnChatMessage(this);
 	}
 
 }

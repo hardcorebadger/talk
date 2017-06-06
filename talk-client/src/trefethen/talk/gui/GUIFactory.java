@@ -10,6 +10,8 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -49,11 +51,36 @@ public class GUIFactory {
 		return p;
 	}
 	
+	public static JTextArea createChatMessageArea() {
+		JTextArea a = new JTextArea();
+		a.setMinimumSize(new Dimension(400,250));
+		return a;
+	}
+	
+	public static JScrollPane scrollWrap(JComponent c) {
+		JScrollPane a = new JScrollPane();
+		a.setViewportView(c);
+		a.setPreferredSize(new Dimension(400,250));
+		a.setMaximumSize(new Dimension(400,250));
+		a.setMinimumSize(new Dimension(400,250));
+		return a;
+	}
+	
 	public static Box wrap(JComponent c) {
 		Box box = new Box(0);
 		box.setPreferredSize(standardDimension);
 		box.setMaximumSize(standardDimension);
 		box.setMinimumSize(standardDimension);
+//		box.setLayout(new GridLayout(1,1));
+		box.add(c);
+		return box;
+	}
+	
+	public static Box wrap(JComponent c, Dimension d) {
+		Box box = new Box(0);
+		box.setPreferredSize(d);
+		box.setMaximumSize(d);
+		box.setMinimumSize(d);
 //		box.setLayout(new GridLayout(1,1));
 		box.add(c);
 		return box;

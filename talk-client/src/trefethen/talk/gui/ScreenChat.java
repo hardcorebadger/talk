@@ -4,14 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import trefethen.talk.client.TalkClient;
 import trefethen.talk.packet.PacketChatHistory;
+import trefethen.talk.packet.PacketChatMessage;
 
 public class ScreenChat extends Screen {
 	
 	private String[] messages;
 	private String[] usernames;
+	
+	private JTextArea textArea;
+	private JTextField input;
 	
 	public ScreenChat(PacketChatHistory p) {
 		usernames = p.usernames;
@@ -29,9 +35,22 @@ public class ScreenChat extends Screen {
 		// TODO Auto-generated method stub
 		GUIManager.setNavBar(GUIManager.chatName.toUpperCase());
 		
+		textArea = GUIFactory.createChatMessageArea();
+		GUIManager.contentPanel.content.add(GUIFactory.scrollWrap(textArea));
+		input = GUIFactory.createTextField();
+		input.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				TalkClient.client.addPacket(new PacketChatMessage(GUIManager.chatID, input.getText()));
+				input.setText("");
+		    }
+		});
+		GUIManager.contentPanel.content.add(GUIFactory.wrap(input));
+
+		String s = "";
 		for (int i = 0; i < messages.length; i++) {
-			GUIManager.contentPanel.content.add(GUIFactory.wrap(GUIFactory.createChatMessage(usernames[i], messages[i])));
+			s += usernames[i] + ": " + messages[i] + "\n";
 		}
+		textArea.setText(s);
 	}
 
 	@Override
@@ -44,6 +63,10 @@ public class ScreenChat extends Screen {
 	public void onClose() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void onMessage(PacketChatMessage m) {
+		textArea.setText(textArea.getText()+m.name + ": " + m.message + "\n");
 	}
 
 }

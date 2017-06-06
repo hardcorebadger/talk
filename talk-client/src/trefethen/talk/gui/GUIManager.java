@@ -32,6 +32,7 @@ public class GUIManager {
 	public static String username;
 	public static String chatName;
 	public static int userID;
+	public static int chatID;
 		
 	public static void initialize() {
 		frame = new JFrame("Talk");
@@ -135,7 +136,12 @@ public class GUIManager {
 	}
 	
 	public static void asyncOnUserChatsResponse(PacketUserChats p) {
-		pushScreen(new ScreenMainMenu(p));
+		if (!(screenStack.peek() instanceof ScreenMainMenu))
+			pushScreen(new ScreenMainMenu(p));
+		else {
+			ScreenMainMenu s = (ScreenMainMenu) screenStack.peek();
+			s.refresh(p);
+		}
 	}
 	
 	public static void asyncOnChatHistoryResponse(PacketChatHistory p) {
@@ -143,6 +149,8 @@ public class GUIManager {
 	}
 	
 	public static void asynOnChatMessage(PacketChatMessage p) {
-
+		// always will get this on the chat screen
+		ScreenChat s = (ScreenChat) screenStack.peek();
+		s.onMessage(p);
 	}
 }
