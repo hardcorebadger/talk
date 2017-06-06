@@ -1,0 +1,20 @@
+package trefethen.talk.chat;
+
+import org.json.simple.JSONObject;
+
+import trefethen.talk.user.User;
+
+public class ChatDirect extends Chat {
+	
+	private User user1;
+	private User user2;
+
+	public ChatDirect(JSONObject obj) {
+		super(obj);
+	}
+	
+	public ChatDirect(User u1, User u2, int i) {
+		super("",i);
+	}
+	
+}

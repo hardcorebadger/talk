@@ -15,6 +15,7 @@ import trefethen.talk.packet.PacketChatMessage;
 import trefethen.talk.packet.PacketLogin;
 import trefethen.talk.packet.PacketRegister;
 import trefethen.talk.packet.PacketUserChats;
+import trefethen.talk.packet.PacketUserStatus;
 
 public class GUIManager {
 	
@@ -101,7 +102,7 @@ public class GUIManager {
 		refresh();
 	}
 	
-	private static void refresh() {
+	public static void refresh() {
 		frameContainer.revalidate();
 		frameContainer.repaint();
 	}
@@ -152,5 +153,16 @@ public class GUIManager {
 		// always will get this on the chat screen
 		ScreenChat s = (ScreenChat) screenStack.peek();
 		s.onMessage(p);
+	}
+	
+	public static void asyncOnUserStatus(PacketUserStatus p) {
+		String status = "online";
+		if (!p.online)
+			status = "offline";
+		pushNotification(p.name + " is " + status);
+		if (screenStack.peek() instanceof ScreenMainMenu) {
+			ScreenMainMenu s = (ScreenMainMenu) screenStack.peek();
+			s.changeUserStatus(p.userId, p.online);
+		}
 	}
 }

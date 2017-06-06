@@ -8,7 +8,6 @@ import org.json.simple.JSONObject;
 
 import trefethen.talk.packet.PacketChatMessage;
 import trefethen.talk.user.User;
-import trefethen.talk.user.UserManager;
 
 public class Chat {
 	

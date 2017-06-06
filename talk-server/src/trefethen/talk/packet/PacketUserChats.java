@@ -9,6 +9,8 @@ import trefethen.talk.user.UserManager;
 
 public class PacketUserChats extends Packet {
 	
+	public boolean[] online;
+	public Integer[] userIds;
 	public Integer[] ids;
 	public String[] names;
 	
@@ -18,11 +20,31 @@ public class PacketUserChats extends Packet {
 	
 	public PacketUserChats(User u) {
 		this();
+		int userID = u.getID();
 		ids = u.getChats().toArray(new Integer[u.getChats().size()]);
 		names = new String[ids.length];
+		userIds = new Integer[ids.length];
+		online = new boolean[ids.length];
 		for (int i = 0; i < ids.length; i++) {
 			// could modify this for DM naming convention
 			names[i] = ChatManager.getChat(ids[i]).getName();
+			userIds[i] = -1;
+			online[i] = true;
+			if (names[i].charAt(0) == '&') {
+				
+				String[] split = names[i].split("&");
+				
+				int otherId = -1;
+				if (split[1].equals(""+userID))
+					otherId = Integer.parseInt(split[2]);
+				else
+					otherId = Integer.parseInt(split[1]);
+				
+				User other = UserManager.getUser(otherId);
+				names[i] = other.getName();
+				userIds[i] = otherId;
+				online[i] = other.isOnline();
+			}
 		}
 	}
 
@@ -32,6 +54,8 @@ public class PacketUserChats extends Packet {
 		for (int i = 0; i < ids.length; i++) {
 			servlet.getOutput().writeInt(ids[i]);
 			servlet.getOutput().writeUTF(names[i]);
+			servlet.getOutput().writeInt(userIds[i]);
+			servlet.getOutput().writeBoolean(online[i]);
 		}
 	}
 

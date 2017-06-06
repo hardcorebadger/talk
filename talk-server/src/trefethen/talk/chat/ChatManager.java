@@ -77,7 +77,7 @@ public class ChatManager {
 	}
 	
 	public static void createChat(User u1, User u2) {
-		Chat c = new Chat(u1.getName() + " & " + u2.getName(), nextID);
+		Chat c = new Chat("&" + u1.getID() + "&" + u2.getID(), nextID);
 		chats.put(nextID, c);
 		u1.addChat(nextID);
 		u2.addChat(nextID);

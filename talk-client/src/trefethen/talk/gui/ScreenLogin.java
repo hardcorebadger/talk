@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 
 import trefethen.talk.client.TalkClient;
 import trefethen.talk.packet.PacketLogin;
+import trefethen.talk.packet.PacketLogout;
 
 public class ScreenLogin extends Screen {
 	
@@ -15,6 +16,8 @@ public class ScreenLogin extends Screen {
 	private JTextField password;
 	private JButton login;
 	private JButton register;
+	
+	private boolean shouldTriggerLogout = false;
 	
 	public ScreenLogin() {
 		
@@ -27,6 +30,9 @@ public class ScreenLogin extends Screen {
 
 	@Override
 	public void onEnable() {
+		
+		if (shouldTriggerLogout)
+			TalkClient.client.addPacket(new PacketLogout());
 		
 		GUIManager.setNavBar("LOGIN");
 		
@@ -55,7 +61,7 @@ public class ScreenLogin extends Screen {
 
 	@Override
 	public void onDisable() {
-		
+		shouldTriggerLogout = true;
 	}
 
 	@Override

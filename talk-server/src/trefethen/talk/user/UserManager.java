@@ -13,6 +13,7 @@ import org.json.simple.parser.JSONParser;
 import trefethen.talk.chat.ChatManager;
 import trefethen.talk.networking.CommunicationServlet;
 import trefethen.talk.packet.Packet;
+import trefethen.talk.packet.PacketUserStatus;
 
 public class UserManager {
 	
@@ -83,8 +84,10 @@ public class UserManager {
 			int loginResult = u.attemptLogin(name,  password);
 			if (loginResult == 1) {
 				// login success
-				connections.put(s, u.getID());
 				u.login(s);
+				broadcastPacket(new PacketUserStatus(u));
+				connections.put(s, u.getID());
+				
 				return u.getID();
 			} else if (loginResult == -1) {
 				// wrong password error
@@ -100,9 +103,11 @@ public class UserManager {
 		try {
 			int userID = connections.get(s);
 			System.out.println("USER MANAGER : User Logout: " + userID);
-			getUser(s).logout();
+			User u = getUser(s);
 			connections.remove(s);
-			s.disconnect(false);
+//			s.disconnect(false);
+			u.logout();
+			broadcastPacket(new PacketUserStatus(u));
 		} catch (Exception e) {
 			// if the user wasn't logged in this isn't needed
 		}
@@ -144,6 +149,13 @@ public class UserManager {
 		}
 	}
 	
+	public static void broadcastPacket(Packet p) {
+		Iterator<CommunicationServlet> iterator = connections.keySet().iterator();
+		while (iterator.hasNext()) {
+			iterator.next().addPacket(p);
+		}
+	}
+		
 	/*
 	 * Private Helpers
 	 */

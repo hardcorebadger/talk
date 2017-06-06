@@ -3,6 +3,7 @@ package trefethen.talk.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -31,6 +32,19 @@ public class GUIFactory {
 		JPasswordField text = new JPasswordField(20);
 //		text.setMaximumSize(standardDimension);
 		return text;
+	}
+	
+	public static JButton createChatButton(String name, boolean online) {
+		System.out.println(online);
+		JButton btn = new JButton(name);
+		btn.setPreferredSize(standardDimension);
+		btn.setMaximumSize(standardDimension);
+		btn.setMinimumSize(standardDimension);
+		btn.setHorizontalAlignment(SwingConstants.LEFT);
+		if (!online) {
+			btn.setText("("+name+")");
+		}
+		return btn;
 	}
 	
 	public static JButton createButton(String name) {

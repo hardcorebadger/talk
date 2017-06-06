@@ -103,6 +103,8 @@ public abstract class Packet {
 		packetMap.put(5, PacketChatHistory.class);
 		packetMap.put(6, PacketChatMessage.class);
 		
+		packetMap.put(7, PacketUserStatus.class);
+		
 	}
 	
 }
