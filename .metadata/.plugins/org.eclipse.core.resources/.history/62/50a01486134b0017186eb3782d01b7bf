@@ -1,0 +1,58 @@
+package trefethen.talk.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class NavBar extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	privte static ImageIcon menuCancel =  new ImageIcon("C:/desing/0.png");
+	
+	public JLabel label;
+	public JButton leftAction;
+
+	public NavBar() {
+		setLayout(new BorderLayout());
+		setMaximumSize(new Dimension(400, 80));
+		setMinimumSize(new Dimension(400, 80));
+		setPreferredSize(new Dimension(400, 80));
+		setBackground(GUIFactory.white);
+		setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light));
+		
+		label = new JLabel("TALK", JLabel.CENTER);
+		add(label, BorderLayout.CENTER);
+		
+		leftAction = new JButton("X");
+		leftAction.setPreferredSize(new Dimension(80,80));
+		leftAction.setMaximumSize(new Dimension(80,80));
+		leftAction.setMinimumSize(new Dimension(80,80));
+		leftAction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				GUIManager.popScreen();
+		    }
+		});
+		add(createBox(leftAction), BorderLayout.WEST);
+		add(createBox(null), BorderLayout.EAST);
+	}
+	
+	private Box createBox(JComponent c) {
+		Box box = new Box(0);
+		box.setPreferredSize(new Dimension(80,80));
+		box.setMaximumSize(new Dimension(80,80));
+		box.setMinimumSize(new Dimension(80,80));
+		if (c != null)
+			box.add(c);
+		return box;
+	}
+
+}

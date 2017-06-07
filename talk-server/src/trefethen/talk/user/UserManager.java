@@ -105,7 +105,6 @@ public class UserManager {
 			System.out.println("USER MANAGER : User Logout: " + userID);
 			User u = getUser(s);
 			connections.remove(s);
-//			s.disconnect(false);
 			u.logout();
 			broadcastPacket(new PacketUserStatus(u));
 		} catch (Exception e) {

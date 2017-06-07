@@ -15,7 +15,9 @@ public class Notification extends JPanel {
 		setSize(400,30);
 		setLocation(0, 0);
 		setBackground(GUIFactory.light);
-		add(new JLabel(s, JLabel.CENTER));
+		JLabel l = new JLabel(s, JLabel.CENTER);
+		l.setFont(GUIFactory.clearSans);
+		add(l);
 		Notification n = this;
 		Timer t = new Timer(5000, new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {

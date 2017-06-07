@@ -42,7 +42,12 @@ public class ScreenMainMenu extends Screen {
 		GUIManager.setNavBar("TALK");
 		
 		for (int i = 0; i < names.length; i++) {
-			JButton b = GUIFactory.createChatButton(names[i], online[i]);
+			JButton b;
+			if (i == 0)
+				b = GUIFactory.createInverseChatButton(names[i], online[i]);
+			else
+				b = GUIFactory.createChatButton(names[i], online[i]);
+			
 			b.setActionCommand(i+"");
 			b.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent actionEvent) {

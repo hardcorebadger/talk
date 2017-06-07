@@ -1,0 +1,64 @@
+package trefethen.talk.gui;
+
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+
+public class IHateSwingButton extends JButton implements MouseListener {
+	
+	private static final long serialVersionUID = 1L;
+	private Color defaultColor;
+	private Color mouseOverColor;
+	private Color pressedColor;
+
+		 
+	public IHateSwingButton(String text, Color d, Color m, Color p) { 
+	 
+		super(text);
+		setBackground(d);
+		defaultColor = d;
+		mouseOverColor = m;
+		pressedColor = p;
+		addMouseListener(this);
+	 
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("yew");
+		if(e.getSource()==this) {  this.setBackground(this.pressedColor); this.revalidate(); this.repaint();}
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==this) {  this.setBackground(this.defaultColor); this.revalidate(); this.repaint();}
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==this) {  this.setBackground(this.mouseOverColor); this.revalidate(); this.repaint();}
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==this) { this.setBackground(this.defaultColor); this.revalidate(); this.repaint();}
+	}
+
+}

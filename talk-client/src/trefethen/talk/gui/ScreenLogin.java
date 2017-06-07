@@ -36,8 +36,8 @@ public class ScreenLogin extends Screen {
 		
 		GUIManager.setNavBar("LOGIN");
 		
-		username = GUIFactory.createTextField();
-		password = GUIFactory.createPasswordField();
+		username = GUIFactory.createTextField("Username");
+		password = GUIFactory.createPasswordField("Password");
 		login = GUIFactory.createButton("Login");
 		register = GUIFactory.createButton("Register");
 		

@@ -37,7 +37,7 @@ public class ScreenChat extends Screen {
 		
 		textArea = GUIFactory.createChatMessageArea();
 		GUIManager.contentPanel.content.add(GUIFactory.scrollWrap(textArea));
-		input = GUIFactory.createTextField();
+		input = GUIFactory.createTextField("Type something...");
 		input.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				TalkClient.client.addPacket(new PacketChatMessage(GUIManager.chatID, input.getText()));

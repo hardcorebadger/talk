@@ -1,1 +1,1 @@
-{"Users":[{"ID":0,"Chats":[0],"Name":"Jake","Password":"test"}]}
+{"Users":[{"ID":0,"Chats":[0,1],"Name":"Jake","Password":"test"},{"ID":1,"Chats":[0,1],"Name":"Fahad","Password":"test"}]}

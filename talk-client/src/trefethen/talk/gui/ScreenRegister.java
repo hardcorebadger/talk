@@ -28,9 +28,9 @@ public class ScreenRegister extends Screen {
 		
 		GUIManager.setNavBar("REGISTER");
 		
-		username = GUIFactory.createTextField();
-		password = GUIFactory.createPasswordField();
-		passwordConfirm = GUIFactory.createPasswordField();
+		username = GUIFactory.createTextField("Username");
+		password = GUIFactory.createPasswordField("Password");
+		passwordConfirm = GUIFactory.createPasswordField("Repeat Password");
 		register = GUIFactory.createButton("Register");
 		
 		register.addActionListener(new ActionListener() {

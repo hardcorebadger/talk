@@ -156,10 +156,10 @@ public class GUIManager {
 	}
 	
 	public static void asyncOnUserStatus(PacketUserStatus p) {
-		String status = "online";
+		String status = "in";
 		if (!p.online)
-			status = "offline";
-		pushNotification(p.name + " is " + status);
+			status = "out";
+		pushNotification(p.name + " logged " + status + ".");
 		if (screenStack.peek() instanceof ScreenMainMenu) {
 			ScreenMainMenu s = (ScreenMainMenu) screenStack.peek();
 			s.changeUserStatus(p.userId, p.online);

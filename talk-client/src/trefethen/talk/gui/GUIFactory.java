@@ -4,79 +4,144 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.io.FileInputStream;
 
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+
 
 public class GUIFactory {
 	
 	public static Color white = Color.white;
 	public static Color light = new Color(230,231,232);
-	public static Dimension standardDimension = new Dimension(400,50);
+	public static Color dark = new Color(41,40,42);
+
+	public static Dimension standardDimension = new Dimension(400,60);
 	
-	public static JTextField createTextField() {
-		JTextField text = new JTextField(20);
-//		text.setMaximumSize(standardDimension);
+	public static Font monix;
+	public static Font clearSans;
+	
+	private static ImageIcon onlineIcon = new ImageIcon("resources/gui/online.png");
+	private static ImageIcon offlineIcon = new ImageIcon("resources/gui/offline.png");
+
+	static {
+		try {
+			Image i = onlineIcon.getImage();
+			onlineIcon = new ImageIcon(i.getScaledInstance(10, 10, java.awt.Image.SCALE_SMOOTH));
+			
+			i = offlineIcon.getImage();
+			offlineIcon = new ImageIcon(i.getScaledInstance(10, 10, java.awt.Image.SCALE_SMOOTH));
+			
+			GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			
+			monix = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("resources/gui/monix.otf"));
+			genv.registerFont(monix);
+			monix = monix.deriveFont(14f);
+			
+			clearSans = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("resources/gui/clearsans.ttf"));
+			genv.registerFont(clearSans);
+			clearSans = clearSans.deriveFont(14f);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
+	}
+	
+	public static JTextField createTextField(String placeholder) {
+		JPlaceholderTextField text = new JPlaceholderTextField(placeholder);
+		text.setBackground(dark);
+		text.setForeground(white);
+		text.setFont(clearSans);
+		text.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
+
 		return text;
 	}
 	
-	public static JPasswordField createPasswordField() {
-		JPasswordField text = new JPasswordField(20);
-//		text.setMaximumSize(standardDimension);
+	public static JPasswordField createPasswordField(String placeholder) {
+		JPlaceholderPasswordField text = new JPlaceholderPasswordField(placeholder);
+		text.setFont(clearSans);
+		text.setBackground(dark);
+		text.setForeground(white);
+		text.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
+
 		return text;
 	}
 	
 	public static JButton createChatButton(String name, boolean online) {
-		System.out.println(online);
-		JButton btn = new JButton(name);
-		btn.setPreferredSize(standardDimension);
-		btn.setMaximumSize(standardDimension);
-		btn.setMinimumSize(standardDimension);
-		btn.setHorizontalAlignment(SwingConstants.LEFT);
-		if (!online) {
-			btn.setText("("+name+")");
-		}
+		JButton btn = createButton(name);
+		btn.setBorder(getPaddedBorderIcon(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light)));
+
+		btn.setIconTextGap(20);
+		if (online)
+			btn.setIcon(onlineIcon);
+		else
+			btn.setIcon(offlineIcon);
+		return btn;
+	}
+	
+	public static JButton createInverseChatButton(String name, boolean online) {
+		JButton btn = createInverseButton(name);
+		btn.setIconTextGap(30);
 		return btn;
 	}
 	
 	public static JButton createButton(String name) {
-		JButton btn = new JButton(name);
+		BGColorButton btn = new BGColorButton(name, white, white, light);
+		btn.setFont(clearSans);
+		btn.setBorder(getPaddedBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light)));
+
 		btn.setPreferredSize(standardDimension);
 		btn.setMaximumSize(standardDimension);
 		btn.setMinimumSize(standardDimension);
 		btn.setHorizontalAlignment(SwingConstants.LEFT);
+		
 		return btn;
 	}
 	
-	public static JPanel createChatMessage(String username, String message) {
-		JPanel p = new JPanel();
-		p.setPreferredSize(new Dimension(400,30));
-		p.setMinimumSize(new Dimension(400,30));
-		p.add(new JLabel((""+username.charAt(0)).toUpperCase(), JLabel.LEFT), BorderLayout.WEST);
-		p.add(new JLabel(message, JLabel.LEFT), BorderLayout.CENTER);
-		return p;
+	public static JButton createInverseButton(String name) {
+		BGColorButton btn = new BGColorButton(name, dark, dark, Color.black);
+		btn.setForeground(Color.gray);
+		btn.setFont(clearSans);
+		btn.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
+
+		btn.setPreferredSize(standardDimension);
+		btn.setMaximumSize(standardDimension);
+		btn.setMinimumSize(standardDimension);
+		btn.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		return btn;
 	}
 	
 	public static JTextArea createChatMessageArea() {
 		JTextArea a = new JTextArea();
-		a.setMinimumSize(new Dimension(400,250));
+		a.setFont(clearSans);
+		a.setEditable(false);
+		a.setMinimumSize(new Dimension(400,240));
+		a.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
 		return a;
 	}
 	
 	public static JScrollPane scrollWrap(JComponent c) {
 		JScrollPane a = new JScrollPane();
 		a.setViewportView(c);
-		a.setPreferredSize(new Dimension(400,250));
-		a.setMaximumSize(new Dimension(400,250));
-		a.setMinimumSize(new Dimension(400,250));
+		a.setPreferredSize(new Dimension(400,240));
+		a.setMaximumSize(new Dimension(400,240));
+		a.setMinimumSize(new Dimension(400,240));
+		a.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, GUIFactory.light));
 		return a;
 	}
 	
@@ -98,6 +163,14 @@ public class GUIFactory {
 //		box.setLayout(new GridLayout(1,1));
 		box.add(c);
 		return box;
+	}
+	
+	public static Border getPaddedBorder(Border b) {
+		return BorderFactory.createCompoundBorder(b, BorderFactory.createEmptyBorder(10, 40, 10, 40));
+	}
+	
+	public static Border getPaddedBorderIcon(Border b) {
+		return BorderFactory.createCompoundBorder(b, BorderFactory.createEmptyBorder(10, 10, 10, 40));
 	}
 
 }
