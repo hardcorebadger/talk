@@ -96,6 +96,7 @@ public class CmdLineUI {
 			login();
 		} else {
 			System.out.println("Login Success, user id: " + p.loginID);
+			userID = p.loginID;
 			// continue to main
 			TalkClient.client.addPacket(new PacketUserChats());
 		}

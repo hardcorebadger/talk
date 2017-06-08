@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import trefethen.talk.client.TalkClient;
 import trefethen.talk.packet.Packet;
+import trefethen.talk.packet.PacketBlank;
 
 public class CommunicationClient implements Runnable {
 	

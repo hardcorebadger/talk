@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import trefethen.talk.client.*;
 import trefethen.talk.networking.CommunicationClient;
+import trefethen.talk.packet.*;
 
 public abstract class Packet {
 	
