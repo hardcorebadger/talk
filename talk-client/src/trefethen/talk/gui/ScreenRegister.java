@@ -37,6 +37,8 @@ public class ScreenRegister extends Screen {
 			public void actionPerformed(ActionEvent actionEvent) {
 				if (password.getText().equals(passwordConfirm.getText()))
 					TalkClient.client.addPacket(new PacketRegister(username.getText(), password.getText()));
+				else
+					GUIManager.pushNotification("Passwords do not match.");
 		    }
 		});
 		

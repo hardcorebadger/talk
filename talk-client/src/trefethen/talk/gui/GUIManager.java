@@ -116,6 +116,8 @@ public class GUIManager {
 			pushNotification("Password incorrect.");
 		} else if (p.loginID == -2) {
 			pushNotification("Username not found.");
+		} else if (p.loginID == -3) {
+			pushNotification("Already logged in.");
 		} else {
 			// continue to main
 			username = p.name;

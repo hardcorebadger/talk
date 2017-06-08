@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -83,10 +84,20 @@ public class UserManager {
 			User u = iterator.next();
 			int loginResult = u.attemptLogin(name,  password);
 			if (loginResult == 1) {
+				
+				Iterator<Entry<CommunicationServlet, Integer>> iterator2 = connections.entrySet().iterator();
+				while (iterator2.hasNext()) {
+					if (iterator2.next().getValue() == u.getID()) {
+						//double login
+						return -3;
+					}
+				}
+				
 				// login success
 				u.login(s);
 				broadcastPacket(new PacketUserStatus(u));
 				connections.put(s, u.getID());
+				
 				
 				return u.getID();
 			} else if (loginResult == -1) {
