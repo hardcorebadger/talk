@@ -73,9 +73,5 @@ public class NavBar extends JPanel {
 			box.add(c);
 		return box;
 	}
-	
-	public void setActionEnabled(boolean e) {
-		leftAction.setEnabled(e);
-	}
 
 }

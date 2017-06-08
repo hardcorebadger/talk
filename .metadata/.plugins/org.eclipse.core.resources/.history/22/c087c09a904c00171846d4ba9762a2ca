@@ -31,8 +31,6 @@ public class ScreenLogin extends Screen {
 	@Override
 	public void onEnable() {
 		
-		GUIManager.navBar.setActionEnabled(false);
-		
 		if (shouldTriggerLogout)
 			TalkClient.client.addPacket(new PacketLogout());
 		

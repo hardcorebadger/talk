@@ -34,13 +34,13 @@ public class ScreenMainMenu extends Screen {
 
 	@Override
 	public void onEnable() {
+		GUIManager.navBar.setActionEnabled(true);
 		if (shouldRefresh) {
 			TalkClient.client.addPacket(new PacketUserChats());
 			return;
 		}
 		
 		GUIManager.setNavBar("TALK");
-		GUIManager.navBar.setActionEnabled(true);
 		
 		for (int i = 0; i < names.length; i++) {
 			JButton b;

@@ -40,7 +40,6 @@ public class ScreenMainMenu extends Screen {
 		}
 		
 		GUIManager.setNavBar("TALK");
-		GUIManager.navBar.setActionEnabled(true);
 		
 		for (int i = 0; i < names.length; i++) {
 			JButton b;
