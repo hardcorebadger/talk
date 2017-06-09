@@ -1,9 +1,0 @@
-package trefethen.talk.gui;
-
-public class ScreenLogin extends Screen {
-	
-	public ScreenLogin() {
-		
-	}
-
-}
